@@ -22,3 +22,4 @@ Libraries Used
 The MVVM architectural was used in the design of this application
 The viewModel serves as the temporary store for the state holders
 
+
