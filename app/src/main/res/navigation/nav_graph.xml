@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/numberListFragment">
+
+    <fragment
+        android:id="@+id/numberListFragment"
+        android:name="com.example.phonebook.ui.NumberListFragment"
+        android:label="fragment_number_list"
+        tools:layout="@layout/fragment_number_list" >
+        <action
+            android:id="@+id/action_numberListFragment_to_addPhoneNumberFragment"
+            app:destination="@id/addPhoneNumberFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_numberListFragment_to_numberDetailsFragment"
+            app:destination="@id/numberDetailsFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/addPhoneNumberFragment"
+        android:name="com.example.phonebook.ui.AddPhoneNumberFragment"
+        android:label="fragment_add_phone_number"
+        tools:layout="@layout/fragment_add_phone_number" >
+        <action
+            android:id="@+id/action_addPhoneNumberFragment_to_numberListFragment"
+            app:destination="@id/numberListFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/numberDetailsFragment"
+        android:name="com.example.phonebook.ui.NumberDetailsFragment"
+        android:label="fragment_number_details"
+        tools:layout="@layout/fragment_number_details" >
+        <argument
+            android:name="phoneNumber"
+            app:argType="string" />
+    </fragment>
+</navigation>
