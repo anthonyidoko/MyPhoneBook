@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
 import com.example.phonebook.R
@@ -35,10 +36,13 @@ class NumberDetailsFragment : Fragment() {
     private fun setViews(phoneNumber: String) {
         val detail = viewModel.getContactDetail(phoneNumber)
 
-        binding.tvLastName.text = String.format("${detail.firstName}  ${detail.lastName}")
-        binding.emailAddress.text = detail.email
-        binding.otherNumber.text = detail.otherNumber
-        binding.phoneNumber.text = detail.phoneNumber
+        detail?.let { detail ->
+            binding.tvEmail.text = detail.email
+            binding.tvOtherNumber.text = detail.otherNumber
+            binding.tvPhoneNumber.text = detail.phoneNumber
+            binding.tvFullName.text = String.format("${detail.firstName}  ${detail.lastName}")
+
+        } ?: Toast.makeText(activity, "User does not exist", Toast.LENGTH_SHORT).show()
 
     }
 

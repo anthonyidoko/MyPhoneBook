@@ -29,8 +29,8 @@ class MainViewModel : ViewModel() {
         _phoneNumbersLiveData.value = listOfNamesAndPhoneNumbers
     }
 
-    fun getContactDetail(phoneNumber: String): ContactDetail {
-        return mapOfContactDetails[phoneNumber]!!
+    fun getContactDetail(phoneNumber: String): ContactDetail? {
+        return mapOfContactDetails[phoneNumber]
 
     }
 

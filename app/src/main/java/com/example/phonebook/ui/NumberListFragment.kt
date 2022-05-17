@@ -65,10 +65,8 @@ class NumberListFragment : Fragment(), SearchView.OnQueryTextListener {
     private fun setUpAdapter() {
         viewModel.phoneNumberLiveData.observe(viewLifecycleOwner, Observer {
             myAdapter.differ.submitList(it.toList())
-            binding.contactRecyclerView.apply {
-                layoutManager = GridLayoutManager(context, 2)
-                adapter = myAdapter
-            }
+            binding.contactRecyclerView.adapter = myAdapter
+
         })
     }
 
